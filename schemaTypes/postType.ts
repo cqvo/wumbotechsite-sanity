@@ -23,6 +23,18 @@ export const postType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      description: 'Brief summary or preview of the post (150-300 characters recommended)',
+      rows: 3,
+      validation: (rule) => 
+        rule
+          .min(50)
+          .max(1000)
+          .warning('Excerpt should be between 50-1000 characters for optimal display'),
+    }),
+    defineField({
       name: 'image',
       type: 'image',
     }),
